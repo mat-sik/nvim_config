@@ -8,6 +8,8 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
 
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 
+
+-- rust cpp c
 local dap = require('dap')
 dap.adapters.codelldb = {
   type = 'server',
@@ -34,3 +36,7 @@ dap.configurations.cpp = {
 
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
+
+
+-- python
+require('dap-python').setup('/home/mateusz/.pyenv/versions/debug/bin/python')
