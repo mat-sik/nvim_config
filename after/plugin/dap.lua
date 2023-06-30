@@ -30,6 +30,7 @@ dap.configurations.cpp = {
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
+    args = {"-a", "10.10.11.12", "-n", "Radio Podcast"}
   },
 }
 -- If you want to use this for Rust and C, add something like this:
@@ -39,4 +40,4 @@ dap.configurations.rust = dap.configurations.cpp
 
 
 -- python
-require('dap-python').setup('/home/mateusz/.pyenv/versions/debug/bin/python')
+-- require('dap-python').setup('/home/mateusz/.pyenv/versions/NLP/bin/python')
