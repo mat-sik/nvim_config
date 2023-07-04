@@ -16,6 +16,7 @@ local function my_on_attach(bufnr)
 
     -- custom mappings
     vim.keymap.set('n', '<leader>e', api.tree.toggle)
+    vim.keymap.set('n', '<leader>w', api.tree.focus)
 end
 
 -- OR setup with some options

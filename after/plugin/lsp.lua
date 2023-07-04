@@ -21,10 +21,10 @@ lsp.configure('lua-language-server', {
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ["<C-Space>"] = cmp.mapping.complete(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
 })
 
 cmp_mappings['<Tab>'] = nil
@@ -74,10 +74,14 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, get_opts('show references'))
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, get_opts('code action'))
     vim.keymap.set('n', '<space>vf', function() vim.lsp.buf.format { async = true } end, get_opts('[F]ormat'))
-end)
 
-lsp.setup()
+    lsp.default_keymaps({ buffer = bufnr })
+end)
 
 vim.diagnostic.config({
     virtual_text = true
 })
+
+lsp.skip_server_setup({ 'jdtls' })
+
+lsp.setup()
