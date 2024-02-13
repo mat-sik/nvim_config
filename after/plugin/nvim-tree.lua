@@ -5,9 +5,6 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- empty setup using defaults
-require("nvim-tree").setup()
-
 local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
 
@@ -15,8 +12,8 @@ local function my_on_attach(bufnr)
     api.config.mappings.default_on_attach(bufnr)
 
     -- custom mappings
-    vim.keymap.set('n', '<leader>e', api.tree.toggle)
-    vim.keymap.set('n', '<leader>w', api.tree.focus)
+    vim.keymap.set('n', '<leader>e', api.tree.toggle, { desc = 'Toggle focus/open file explorer.' })
+    vim.keymap.set('n', '<leader>w', api.tree.focus, { desc = 'Focus/Open file explorer.' })
 end
 
 -- OR setup with some options
