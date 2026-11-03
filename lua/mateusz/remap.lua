@@ -16,3 +16,5 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'select line and move it d
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = 'I am not sure copied from primeagion' })
 -- faster replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Fast rename.' })
+-- faster exit
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
